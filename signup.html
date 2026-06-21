@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sign Up — NairaX</title>
+<link rel="stylesheet" href="css/style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body class="auth-body">
+
+<div class="auth-container">
+  <a href="index.html" class="logo auth-logo">Naira<span>X</span></a>
+  <div class="auth-card">
+    <h2>Create your account</h2>
+    <p class="auth-sub">Join the NairaX community — it's free</p>
+
+    <div id="authMessage" class="auth-message hidden"></div>
+
+    <form id="signupForm">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="signupName" placeholder="Your full name" required/>
+      </div>
+      <div class="form-group">
+        <label>Email address</label>
+        <input type="email" id="signupEmail" placeholder="you@example.com" required/>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="signupPassword" placeholder="At least 8 characters" required minlength="8"/>
+      </div>
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input type="password" id="signupConfirm" placeholder="Repeat your password" required/>
+      </div>
+      <label class="checkbox-label" style="margin-bottom:1.2rem">
+        <input type="checkbox" id="agreeTerms" required/>
+        I agree to the <a href="#" class="link">Terms of Service</a> and understand NRX is a utility token, not an investment.
+      </label>
+      <button type="submit" class="btn-primary btn-full" id="signupBtn">Create Account</button>
+    </form>
+
+    <p class="auth-switch">Already have an account? <a href="login.html" class="link">Log in</a></p>
+  </div>
+</div>
+
+<script src="js/supabase.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

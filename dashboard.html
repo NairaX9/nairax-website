@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Dashboard — NairaX</title>
+<link rel="stylesheet" href="css/style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body class="dash-body">
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <a href="index.html" class="logo sidebar-logo">Naira<span>X</span></a>
+  <nav class="sidebar-nav">
+    <a href="dashboard.html" class="nav-item active">🏠 Dashboard</a>
+    <a href="send.html" class="nav-item">💸 Send NRX</a>
+    <a href="transactions.html" class="nav-item">📋 Transactions</a>
+    <a href="profile.html" class="nav-item">👤 Profile</a>
+    <a href="settings.html" class="nav-item">⚙️ Settings</a>
+  </nav>
+  <button class="nav-item logout-btn" onclick="logout()">🚪 Logout</button>
+</aside>
+
+<!-- MAIN -->
+<main class="dash-main">
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <button class="hamburger" onclick="toggleSidebar()">☰</button>
+    <h1 class="page-title">Dashboard</h1>
+    <div class="topbar-right">
+      <div class="notification-bell" onclick="toggleNotifications()">
+        🔔 <span class="notif-badge" id="notifBadge">0</span>
+      </div>
+      <div class="avatar" id="userAvatar">U</div>
+    </div>
+  </div>
+
+  <!-- NOTIFICATIONS DROPDOWN -->
+  <div class="notif-dropdown hidden" id="notifDropdown">
+    <div class="notif-header">Notifications</div>
+    <div class="notif-item">🎉 Welcome to NairaX! Your account is ready.</div>
+    <div class="notif-item">📢 NRX token launch is coming soon. Stay tuned!</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="dash-content">
+
+    <!-- WELCOME -->
+    <div class="welcome-banner">
+      <div>
+        <h2>Welcome back, <span id="userName">User</span> 👋</h2>
+        <p>Here's your NairaX overview</p>
+      </div>
+    </div>
+
+    <!-- STATS CARDS -->
+    <div class="dash-cards">
+      <div class="dash-card green-card">
+        <div class="dash-card-label">NRX Balance</div>
+        <div class="dash-card-value" id="nrxBalance">0.00 NRX</div>
+        <div class="dash-card-sub">≈ $0.00 USD</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-label">Total Sent</div>
+        <div class="dash-card-value" id="totalSent">0.00 NRX</div>
+        <div class="dash-card-sub">All time</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-label">Transactions</div>
+        <div class="dash-card-value" id="txCount">0</div>
+        <div class="dash-card-sub">Total transactions</div>
+      </div>
+    </div>
+
+    <!-- QUICK ACTIONS -->
+    <div class="section-title">Quick Actions</div>
+    <div class="quick-actions">
+      <a href="send.html" class="quick-btn">💸 Send NRX</a>
+      <a href="transactions.html" class="quick-btn">📋 View History</a>
+      <a href="profile.html" class="quick-btn">👤 Edit Profile</a>
+    </div>
+
+    <!-- RECENT TRANSACTIONS -->
+    <div class="section-title">Recent Transactions</div>
+    <div class="tx-list" id="txList">
+      <div class="tx-empty">No transactions yet. <a href="send.html" class="link">Send your first NRX →</a></div>
+    </div>
+
+  </div>
+</main>
+
+<script src="js/supabase.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

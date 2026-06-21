@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Send NRX — NairaX</title>
+<link rel="stylesheet" href="css/style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body class="dash-body">
+
+<aside class="sidebar" id="sidebar">
+  <a href="index.html" class="logo sidebar-logo">Naira<span>X</span></a>
+  <nav class="sidebar-nav">
+    <a href="dashboard.html" class="nav-item">🏠 Dashboard</a>
+    <a href="send.html" class="nav-item active">💸 Send NRX</a>
+    <a href="transactions.html" class="nav-item">📋 Transactions</a>
+    <a href="profile.html" class="nav-item">👤 Profile</a>
+    <a href="settings.html" class="nav-item">⚙️ Settings</a>
+  </nav>
+  <button class="nav-item logout-btn" onclick="logout()">🚪 Logout</button>
+</aside>
+
+<main class="dash-main">
+  <div class="topbar">
+    <button class="hamburger" onclick="toggleSidebar()">☰</button>
+    <h1 class="page-title">Send NRX</h1>
+    <div class="topbar-right">
+      <div class="avatar" id="userAvatar">U</div>
+    </div>
+  </div>
+
+  <div class="dash-content">
+    <div class="form-card">
+      <h2>Send NRX Tokens</h2>
+      <p style="color:var(--muted);margin-bottom:1.5rem">Transfer NRX to anyone by their email address</p>
+
+      <div id="sendMessage" class="auth-message hidden"></div>
+
+      <div class="balance-display">
+        Your balance: <strong id="currentBalance">0.00 NRX</strong>
+      </div>
+
+      <form id="sendForm">
+        <div class="form-group">
+          <label>Recipient Email</label>
+          <input type="email" id="recipientEmail" placeholder="recipient@example.com" required/>
+        </div>
+        <div class="form-group">
+          <label>Amount (NRX)</label>
+          <input type="number" id="sendAmount" placeholder="0.00" min="0.01" step="0.01" required/>
+        </div>
+        <div class="form-group">
+          <label>Note (optional)</label>
+          <input type="text" id="sendNote" placeholder="What's this for?"/>
+        </div>
+        <div class="tx-summary hidden" id="txSummary">
+          <div class="tx-row"><span>Sending</span><span id="summaryAmount">0 NRX</span></div>
+          <div class="tx-row"><span>To</span><span id="summaryEmail">—</span></div>
+          <div class="tx-row"><span>Fee</span><span>0 NRX (free)</span></div>
+        </div>
+        <button type="submit" class="btn-primary btn-full" id="sendBtn">Send NRX</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<script src="js/supabase.js"></script>
+<script src="js/send.js"></script>
+</body>
+</html>
