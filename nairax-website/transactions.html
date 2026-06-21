@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Transactions — NairaX</title>
+<link rel="stylesheet" href="css/style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body class="dash-body">
+
+<aside class="sidebar" id="sidebar">
+  <a href="index.html" class="logo sidebar-logo">Naira<span>X</span></a>
+  <nav class="sidebar-nav">
+    <a href="dashboard.html" class="nav-item">🏠 Dashboard</a>
+    <a href="send.html" class="nav-item">💸 Send NRX</a>
+    <a href="transactions.html" class="nav-item active">📋 Transactions</a>
+    <a href="profile.html" class="nav-item">👤 Profile</a>
+    <a href="settings.html" class="nav-item">⚙️ Settings</a>
+  </nav>
+  <button class="nav-item logout-btn" onclick="logout()">🚪 Logout</button>
+</aside>
+
+<main class="dash-main">
+  <div class="topbar">
+    <button class="hamburger" onclick="toggleSidebar()">☰</button>
+    <h1 class="page-title">Transactions</h1>
+    <div class="topbar-right">
+      <div class="avatar" id="userAvatar">U</div>
+    </div>
+  </div>
+
+  <div class="dash-content">
+    <div class="search-bar">
+      <input type="text" id="txSearch" placeholder="🔍 Search transactions..." oninput="filterTransactions()"/>
+    </div>
+
+    <div class="tx-table-wrap">
+      <table class="tx-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Recipient</th>
+            <th>Amount</th>
+            <th>Note</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="txTableBody">
+          <tr><td colspan="5" class="tx-empty">Loading transactions...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<script src="js/supabase.js"></script>
+<script src="js/transactions.js"></script>
+</body>
+</html>

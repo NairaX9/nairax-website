@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Profile — NairaX</title>
+<link rel="stylesheet" href="css/style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body class="dash-body">
+
+<aside class="sidebar" id="sidebar">
+  <a href="index.html" class="logo sidebar-logo">Naira<span>X</span></a>
+  <nav class="sidebar-nav">
+    <a href="dashboard.html" class="nav-item">🏠 Dashboard</a>
+    <a href="send.html" class="nav-item">💸 Send NRX</a>
+    <a href="transactions.html" class="nav-item">📋 Transactions</a>
+    <a href="profile.html" class="nav-item active">👤 Profile</a>
+    <a href="settings.html" class="nav-item">⚙️ Settings</a>
+  </nav>
+  <button class="nav-item logout-btn" onclick="logout()">🚪 Logout</button>
+</aside>
+
+<main class="dash-main">
+  <div class="topbar">
+    <button class="hamburger" onclick="toggleSidebar()">☰</button>
+    <h1 class="page-title">My Profile</h1>
+    <div class="topbar-right">
+      <div class="avatar" id="userAvatar">U</div>
+    </div>
+  </div>
+
+  <div class="dash-content">
+    <div class="form-card">
+      <div class="profile-avatar-section">
+        <div class="profile-avatar" id="profileAvatarDisplay">U</div>
+        <div>
+          <h2 id="profileNameDisplay">Loading...</h2>
+          <p id="profileEmailDisplay" style="color:var(--muted)"></p>
+        </div>
+      </div>
+
+      <div id="profileMessage" class="auth-message hidden"></div>
+
+      <form id="profileForm">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="profileName" placeholder="Your full name"/>
+        </div>
+        <div class="form-group">
+          <label>Email address</label>
+          <input type="email" id="profileEmail" disabled style="opacity:0.5;cursor:not-allowed"/>
+          <small style="color:var(--muted)">Email cannot be changed here</small>
+        </div>
+        <div class="form-group">
+          <label>Wallet Address (optional)</label>
+          <input type="text" id="profileWallet" placeholder="Your BNB wallet address"/>
+        </div>
+        <button type="submit" class="btn-primary" id="profileBtn">Save Changes</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<script src="js/supabase.js"></script>
+<script src="js/profile.js"></script>
+</body>
+</html>

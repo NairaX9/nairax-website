@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Settings — NairaX</title>
+<link rel="stylesheet" href="css/style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body class="dash-body">
+
+<aside class="sidebar" id="sidebar">
+  <a href="index.html" class="logo sidebar-logo">Naira<span>X</span></a>
+  <nav class="sidebar-nav">
+    <a href="dashboard.html" class="nav-item">🏠 Dashboard</a>
+    <a href="send.html" class="nav-item">💸 Send NRX</a>
+    <a href="transactions.html" class="nav-item">📋 Transactions</a>
+    <a href="profile.html" class="nav-item">👤 Profile</a>
+    <a href="settings.html" class="nav-item active">⚙️ Settings</a>
+  </nav>
+  <button class="nav-item logout-btn" onclick="logout()">🚪 Logout</button>
+</aside>
+
+<main class="dash-main">
+  <div class="topbar">
+    <button class="hamburger" onclick="toggleSidebar()">☰</button>
+    <h1 class="page-title">Settings</h1>
+    <div class="topbar-right">
+      <div class="avatar" id="userAvatar">U</div>
+    </div>
+  </div>
+
+  <div class="dash-content">
+
+    <!-- CHANGE PASSWORD -->
+    <div class="form-card" style="margin-bottom:1.5rem">
+      <h3>Change Password</h3>
+      <p style="color:var(--muted);margin-bottom:1.2rem">Update your account password</p>
+      <div id="pwMessage" class="auth-message hidden"></div>
+      <form id="passwordForm">
+        <div class="form-group">
+          <label>New Password</label>
+          <input type="password" id="newPassword" placeholder="At least 8 characters" minlength="8" required/>
+        </div>
+        <div class="form-group">
+          <label>Confirm New Password</label>
+          <input type="password" id="confirmPassword" placeholder="Repeat new password" required/>
+        </div>
+        <button type="submit" class="btn-primary" id="pwBtn">Update Password</button>
+      </form>
+    </div>
+
+    <!-- NOTIFICATIONS -->
+    <div class="form-card" style="margin-bottom:1.5rem">
+      <h3>Notifications</h3>
+      <p style="color:var(--muted);margin-bottom:1.2rem">Manage your notification preferences</p>
+      <div class="toggle-row">
+        <span>Email notifications</span>
+        <label class="toggle"><input type="checkbox" checked id="emailNotif"/><span class="slider"></span></label>
+      </div>
+      <div class="toggle-row">
+        <span>Transaction alerts</span>
+        <label class="toggle"><input type="checkbox" checked id="txNotif"/><span class="slider"></span></label>
+      </div>
+      <div class="toggle-row">
+        <span>Community updates</span>
+        <label class="toggle"><input type="checkbox" id="communityNotif"/><span class="slider"></span></label>
+      </div>
+      <button class="btn-primary" style="margin-top:1rem" onclick="saveNotifications()">Save Preferences</button>
+    </div>
+
+    <!-- DANGER ZONE -->
+    <div class="form-card danger-card">
+      <h3>Danger Zone</h3>
+      <p style="color:var(--muted);margin-bottom:1.2rem">These actions are permanent and cannot be undone</p>
+      <button class="btn-danger" onclick="confirmDeleteAccount()">Delete My Account</button>
+    </div>
+
+  </div>
+</main>
+
+<script src="js/supabase.js"></script>
+<script src="js/settings.js"></script>
+</body>
+</html>
